@@ -1,6 +1,9 @@
 package com.example.projetocadastroclientepetshop;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
+//Serializable assim eu consigo colocar ele nos putExtra
 
    private String nome,endereco,telefone;
 

@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-public class CriaBanco extends SQLiteOpenHelper {
+public class Conexao extends SQLiteOpenHelper {
 
     private static final String NAME="banco.db";
     private static final String TABELA = "usuarios";
@@ -17,26 +17,22 @@ public class CriaBanco extends SQLiteOpenHelper {
     private static final int VERSION=1;
 
 
-    public CriaBanco(Context context) {
+    public Conexao(Context context) {
         super(context,NAME, null, VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE"+TABELA+"("
-                + ID + " integer primary key autoincrement,"
-                + NOME + " text,"
-                + ENDERECO + " text,"
-                + TELEFONE + " text"
-                +")";
 
-        db.execSQL(sql);
+        db.execSQL("CREATE TABLE TABELA(id INTEGER PRIMARY KEY AUTOINCREMENT, nome varchar(50), endereco varchar(30), telefone varchar(10))");
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
 
-        db.execSQL("DROP TABLE IF EXISTS"+ TABELA);
+        // Desse Motodo da erro
+      //  db.execSQL("DROP TABLE IF EXISTS"+ TABELA);
         onCreate(db);
     }
 }
